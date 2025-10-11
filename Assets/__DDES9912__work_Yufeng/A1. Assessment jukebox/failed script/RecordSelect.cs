@@ -1,32 +1,19 @@
 using UnityEngine;
-
-
 public class RecordSelect : MonoBehaviour
 {
- 
-    public Vector3 recordPosition;
-   
-    public AudioClip recordMusic;
-
-    void Start()
-    {
-       
-        recordPosition = transform.position;
-    }
-
-
     void OnMouseDown()
     {
-     
-        JukeboxArm arm = FindObjectOfType<JukeboxArm>();
-        if (arm != null)
-        {
-            arm.targetRecordPos = recordPosition; 
-            arm.targetMusic = recordMusic;     
-            arm.isSelectRecord = true;           
-        }
 
-      
-        GetComponent<Renderer>().material.color = Color.yellow;
+        Debug.Log("尝试点击唱片！");
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            Debug.Log("命中了：" + hit.collider.gameObject.name);
+        }
+        else
+        {
+            Debug.Log("没命中任何物体！");
+        }
+        // 原逻辑...
     }
 }
