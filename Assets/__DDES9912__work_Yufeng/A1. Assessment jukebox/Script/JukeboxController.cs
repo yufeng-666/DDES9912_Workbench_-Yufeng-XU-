@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectAController : MonoBehaviour
+public class JukeboxController : MonoBehaviour
 {
      public GameObject objectA;
     public GameObject objectB;
