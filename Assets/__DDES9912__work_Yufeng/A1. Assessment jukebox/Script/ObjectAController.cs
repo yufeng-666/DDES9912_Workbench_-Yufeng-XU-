@@ -16,7 +16,18 @@ public class ObjectAController : MonoBehaviour
     {
         if (index < 0 || index >= positionList.Count) return;
         objectB = positionList[index].gameObject;
-        StartCoroutine(ExecuteFunctionsSequence());
+
+        RecordData recordDate = objectB.GetComponent<RecordData>();
+        if(recordDate!=null && recordDate.song!=null)
+        {
+            audioSource.clip = recordDate.song;
+        }
+        else
+        {
+            Debug.LogWarning(objectB);
+            audioSource = null;
+        }
+            StartCoroutine(ExecuteFunctionsSequence());
     }
     IEnumerator ExecuteFunctionsSequence()
     {
