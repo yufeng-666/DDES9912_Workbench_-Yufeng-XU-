@@ -12,6 +12,9 @@ public class JukeboxController : MonoBehaviour
     public AudioSource audioSource;
     private bool isRotating = false;
     public Transform CPos;
+    public Light[] dynamicLights; 
+    public float lightChangeSpeed = 2f; 
+    private int currentLightMode = 0; 
     public void PlayRecord(int index)
     {
         if (index < 0 || index >= positionList.Count) return;
